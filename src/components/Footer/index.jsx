@@ -2,7 +2,7 @@ import styles from "./Footer.module.css";
 function Footer(){
     return(
         <footer className={styles.footer} >
-            Feito com ❣️ por Edson Ocampo &copy; 2024
+            Feito com ❣️ por edreact &copy; 2024
         </footer>
     )
 }

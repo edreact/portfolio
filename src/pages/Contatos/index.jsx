@@ -13,7 +13,7 @@ function Contatos() {
 
                 <div className={styles.icones}>
                     
-                    <a href='mailto:edson@gmail.com' target='_blank' rel='noopener noreferrer'>
+                    <a href='mailto:edreact@gmail.com' target='_blank' rel='noopener noreferrer'>
                         <GoMail className={styles.icone} />
                     </a>
 
