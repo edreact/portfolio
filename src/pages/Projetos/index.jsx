@@ -1,43 +1,44 @@
-import { useEffect, useState } from 'react'
-import Card from '../../components/Card'
-import styles from './Projetos.module.css'
+import { useEffect, useState } from 'react';
+import Card from '../../components/Card';
+import styles from './Projetos.module.css';
 
 function Projetos() {
-
-    const [ repositories, setRepositories ] = useState([])
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const buscarRepositorios = async () => {
-            const response = await fetch('https://api.github.com/users/edreact/repos?page=1&per_page=50')
-            const data = await response.json()
-            setRepositories(data)
+        const fetchProducts = async () => {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbz3dPYXXfTqou_D_yv_XdmAm5FVPkKJ8NehotNPtf8ELTVJJ-QpXBT3k1D-kF3VG6W7/exec');
+            const data = await response.json();
+            console.log(data); // Para depuração
+            setProducts(data.saida); // Acessando o array dentro de 'saida'
         }
-        buscarRepositorios()
-    }, [])
+        fetchProducts();
+    }, []);
 
     return (
         <section className={styles.projetos}>
-            <h2>Projetos</h2>
+            <h2>Loja Virtual</h2>
             {
-                repositories.length > 0 ? (
+                products.length > 0 ? (
                     <section className={styles.lista}>
                         {
-                            repositories.map((repo) => (
+                            products.map((product) => (
                                 <Card
-                                    key={repo.id}
-                                    name={repo.name}
-                                    description={repo.description}
-                                    html_url={repo.html_url}
+                                    key={product.id} // O ID deve ser único
+                                    name={product.name}
+                                    description={product.description}
+                                    price={product.price}
+                                    imageUrl={product.imageUrl}
                                 />
                             ))
                         }
                     </section>
                 ) : (
-                    <p>Carregando repositórios...</p>
+                    <p>Carregando produtos...</p>
                 )
             }
         </section>
-    )
+    );
 }
 
-export default Projetos
+export default Projetos;

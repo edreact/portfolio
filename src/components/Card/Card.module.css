@@ -1,7 +1,7 @@
-
+/* Card.module.css */
 .card {
     width: 300px;
-    height: 300px;
+    min-height: 400px; /* Aumentar a altura mínima para acomodar o conteúdo */
     background-color: var(--soft-white);
     color: var(--gray);
     border-radius: 8px;
@@ -13,36 +13,48 @@
     justify-content: space-between;
 }
 
+.productImage {
+    width: 100%;
+    height: auto;
+    max-height: 200px; /* Limite a altura máxima para evitar esticar imagens grandes */
+    object-fit: contain; /* Garantir que a imagem não será cortada */
+    border-radius: 8px;
+}
+
 .card h3 {
     color: var(--primary);
+    margin: 10px 0; /* Adicionando um espaçamento ao título */
+    text-align: center;
 }
 
 .card p {
     color: #555;
+    text-align: center;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--green);
+    margin: 10px 0; /* Espaçamento ao redor do preço */
 }
 
 .card_footer {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.card_icones {
-    display: flex;
-    gap: 10px;
-    color: var(--red);
-    font-size: 1.5rem;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .botao {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    padding: 10px;
     border: 0;
     border-radius: 8px;
     background-color: var(--primary);
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
