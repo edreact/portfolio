@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom'
-import styles from './Header.module.css'
-import { useState } from 'react'
+import { Link } from 'react-router-dom';
+import styles from './Header.module.css';
+import { useState } from 'react';
 
 function Header() {
-
-  const [ showMenu, setShowMenu ] = useState(false)
+  const [showMenu, setShowMenu] = useState(false);
   const toggleMenu = () => {
-    setShowMenu(!showMenu)
-  }
+    setShowMenu(!showMenu);
+  };
 
   return (
     <header className={styles.header}>
@@ -15,7 +14,7 @@ function Header() {
         <span>edreact.dev</span>
       </Link>
       <nav
-        className={`${styles.menuSandwich} ${ showMenu ? styles.show : '' }`}
+        className={`${styles.menuSandwich} ${showMenu ? styles.show : ''}`}
         onClick={toggleMenu}
       >
         <Link to="/">Home</Link>
@@ -23,16 +22,13 @@ function Header() {
         <Link to="/projetos">Projetos</Link>
         <Link to="/contatos">Contatos</Link>
       </nav>
-      <div
-        className={styles.menuButton}
-        onClick={toggleMenu}
-      >
+      <div className={styles.menuButton} onClick={toggleMenu}>
         <span className={styles.linha}></span>
         <span className={styles.linha}></span>
         <span className={styles.linha}></span>
       </div>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

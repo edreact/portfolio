@@ -7,9 +7,11 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* aula 11 extra 01 */
+
     position: fixed;
     top: 0;
+    z-index: 1000; /* Garantir que o Header fique acima de outros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Suave sombra para destacar */
 }
 
 .header span {
