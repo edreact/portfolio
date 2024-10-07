@@ -3,82 +3,77 @@ import Card from '../../components/Card';
 import styles from './Projetos.module.css';
 
 function Projetos() {
-    const [products, setProducts] = useState([]);
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [repositories, setRepositories] = useState([]);
+    const [lastProducts, setLastProducts] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
-        const fetchProducts = async () => {
+        const fetchData = async () => {
             const response = await fetch('https://script.google.com/macros/s/AKfycbz3dPYXXfTqou_D_yv_XdmAm5FVPkKJ8NehotNPtf8ELTVJJ-QpXBT3k1D-kF3VG6W7/exec');
             const data = await response.json();
-            setProducts(data.saida);
-            setFilteredProducts(data.saida); // Exibir todos os produtos inicialmente
-        }
-        fetchProducts();
+            setRepositories(data.saida);
+            setLastProducts(data.saida.slice(-4)); // Últimos 4 produtos
+        };
+        fetchData();
     }, []);
 
-    // Função para lidar com a pesquisa
-    const handleSearch = (e) => {
-        const searchValue = e.target.value.toLowerCase();
-        setSearchTerm(searchValue);
-
-        const filtered = products.filter((product) =>
-            product.name.toLowerCase().includes(searchValue)
-        );
-        setFilteredProducts(filtered);
-    };
-
-    // Últimos 4 produtos adicionados
-    const latestProducts = products.slice(-4);
+    // Filtra produtos com base na pesquisa
+    const filteredRepositories = repositories.filter(repo =>
+        repo.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
-        <div className={styles.container}>
+        <section className={styles.projetos}>
+            <h2>Minha Loja Virtual</h2>
 
-            {/* Campo de pesquisa no topo */}
-            <section className={styles.searchSection}>
+            {/* Campo de pesquisa fixo */}
+            <div className={styles.searchContainer}>
                 <input
                     type="text"
-                    placeholder="Pesquisar por nome"
+                    placeholder="Buscar produtos..."
                     value={searchTerm}
-                    onChange={handleSearch}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                     className={styles.searchInput}
                 />
-            </section>
+            </div>
 
-            <main className={styles.projetos}>
-                <h2>Produtos</h2>
-                {filteredProducts.length > 0 ? (
+            <div className={styles.produtos}>
+                {filteredRepositories.length > 0 ? (
                     <section className={styles.lista}>
-                        {filteredProducts.map((product) => (
-                            <Card
-                                key={product.id}
-                                name={product.name}
-                                description={product.description}
-                                price={product.price}
-                                imageUrl={product.imageUrl}
-                            />
-                        ))}
+                        {filteredRepositories
+                            .sort((a, b) => a.name.localeCompare(b.name)) // Ordena produtos
+                            .map((repo) => (
+                                <Card
+                                    key={repo.id}
+                                    id={repo.id}
+                                    name={repo.name}
+                                    description={repo.description}
+                                    price={repo.price}
+                                    imageUrl={repo.imageUrl}
+                                />
+                            ))}
                     </section>
                 ) : (
-                    <p>Nenhum produto encontrado...</p>
+                    <p>Carregando produtos...</p>
                 )}
+            </div>
 
-                {/* Seção dos últimos 4 produtos */}
-                <hr className={styles.divider} />
-                <h3>Últimos Produtos Adicionados</h3>
-                <section className={styles.latest}>
-                    {latestProducts.map((product) => (
-                        <Card
-                            key={product.id}
-                            name={product.name}
-                            description={product.description}
-                            price={product.price}
-                            imageUrl={product.imageUrl}
-                        />
-                    ))}
-                </section>
-            </main>
-        </div>
+            <hr className={styles.divider} />
+
+            <h3 className={styles.ultimosProdutos}>Últimos Produtos</h3>
+            <div className={styles.ultimosProdutosContainer}>
+                {lastProducts.map((product) => (
+                    <Card
+                        key={product.id}
+                        id={product.id}
+                        name={product.name}
+                        description={product.description}
+                        price={product.price}
+                        imageUrl={product.imageUrl}
+                    />
+                ))}
+            </div>
+        </section>
     );
 }
 

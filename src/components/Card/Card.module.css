@@ -11,6 +11,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    text-decoration: none; /* Remove sublinhado de links */
+    color: inherit; /* Garante que a cor do texto permaneça */
 }
 
 .productImage {

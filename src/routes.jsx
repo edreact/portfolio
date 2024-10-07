@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Projetos from "./pages/Projetos";
 import Contatos from "./pages/Contatos";
+import ProductDetails from "./pages/ProductDetails";  // <-- Importação da nova página de detalhes
 import Page404 from "./pages/Page404";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -19,6 +20,7 @@ function AppRoutes() {
             <Route path="/sobre" element={<Sobre />}></Route>
             <Route path="/projetos" element={<Projetos />}></Route>
             <Route path="/contatos" element={<Contatos />}></Route>
+            <Route path="/produto/:id" element={<ProductDetails />} /> {/* <-- Rota de detalhes do produto */}
             <Route path="*" element={<Page404 />}></Route>
           </Routes>
         </Container>

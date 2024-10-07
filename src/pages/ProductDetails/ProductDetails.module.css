@@ -1,0 +1,51 @@
+.productDetails {
+    padding: 20px;
+    text-align: center;
+}
+
+.productDetails h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.mainImage {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.productInfo {
+    margin-top: 1.5rem;
+}
+
+.productInfo h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.extraImages {
+    margin-top: 1.5rem;
+}
+
+.extraImages img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+/* Breadcrumb (caminho de navegação) */
+.breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
