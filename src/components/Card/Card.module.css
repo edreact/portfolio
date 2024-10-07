@@ -1,69 +1,92 @@
-/* Card.module.css */
+/* Estilo dos Cards */
 .card {
-    width: 300px;
-    min-height: 400px; /* Aumentar a altura mínima para acomodar o conteúdo */
-    background-color: var(--soft-white);
-    color: var(--gray);
+    background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 5px 5px 10px #22222270;
-    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 250px; /* Definindo uma largura máxima que é adequada para telas maiores */
+    height: auto; /* Deixe a altura automática para acomodar os elementos */
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    text-decoration: none; /* Remove sublinhado de links */
-    color: inherit; /* Garante que a cor do texto permaneça */
+    text-align: center;
+    padding: 8px; /* Padding para melhor espaçamento */
+    transition: transform 0.2s; /* Transição suave para hover */
 }
 
-.productImage {
-    width: 100%;
-    height: auto;
-    max-height: 200px; /* Limite a altura máxima para evitar esticar imagens grandes */
-    object-fit: contain; /* Garantir que a imagem não será cortada */
-    border-radius: 8px;
+.card:hover {
+    transform: scale(1.05); /* Leve aumento no tamanho do card ao passar o mouse */
+}
+
+.card img {
+    max-height: 150px; /* Ajustando a altura máxima da imagem */
+    object-fit: cover; /* Assegura que a imagem não fique distorcida */
 }
 
 .card h3 {
-    color: var(--primary);
-    margin: 10px 0; /* Adicionando um espaçamento ao título */
-    text-align: center;
+    font-size: 1rem; /* Tamanho de fonte adequado para telas grandes */
+    margin: 0.5rem 0; /* Margem padrão */
+    white-space: nowrap; /* Não quebrar a linha */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Truncar texto longo com "..." */
 }
 
 .card p {
+    font-size: 0.85rem; /* Tamanho de fonte para descrição */
+    margin: 0.5rem 0; /* Margem padrão */
     color: #555;
-    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.price {
-    font-size: 1.2rem;
+.card .price {
     font-weight: bold;
-    color: var(--green);
-    margin: 10px 0; /* Espaçamento ao redor do preço */
+    margin: 0.5rem 0; /* Margem padrão */
 }
 
 .card_footer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+    padding: 0.5rem; /* Padding padrão */
+    background-color: #fff;
+    border-top: 1px solid #eee;
 }
 
 .botao {
-    width: 100%;
-    padding: 10px;
-    border: 0;
-    border-radius: 8px;
-    background-color: var(--primary);
-    color: var(--white);
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Padding padrão para o botão */
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 0.85rem; /* Tamanho de fonte padrão para o botão */
 }
 
 .botao:hover {
-    background-color: var(--red);
-    transition: all .5s;
+    background-color: #45a049;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cardContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dois cards por linha em telas pequenas */
+        gap: 0.5rem; /* Espaçamento entre os cards */
+    }
+}
+
+@media (max-width: 430px) {
+    .cardContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Dois cards por linha */
+        gap: 0.5rem; /* Espaçamento entre os cards */
+    }
+
+    .searchInput {
+        width: 100%; /* Campo de pesquisa ocupa toda a largura */
+    }
+
+    .card {
+        padding: 4px; /* Padding reduzido dentro do card */
+    }
 }
