@@ -15,7 +15,7 @@
 
 .productInfo {
     margin-top: 1.5rem;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 
 .productInfo h3 {
@@ -36,7 +36,8 @@
 
 /* Breadcrumb (caminho de navegação) */
 .breadcrumb {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 700;
     margin-bottom: 20px;
 }
 
