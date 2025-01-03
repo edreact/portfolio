@@ -1,4 +1,7 @@
 /* Container principal */
+h2{
+    font-size: 2rem;
+}
 .container {
     padding-top: 70px;
     margin-top: 30px;
@@ -53,7 +56,7 @@
     width: 300px; /* Largura do campo de pesquisa */
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1.5rem;
 }
 
 /* Últimos Produtos */

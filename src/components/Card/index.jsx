@@ -1,5 +1,6 @@
 import styles from "./Card.module.css";
-import { BsCartPlus } from "react-icons/bs";
+{/*import { BsCartPlus } from "react-icons/bs";
+*/}
 import PropTypes from 'prop-types';
 import { Link, useNavigate } from "react-router-dom"; // Importar Link e useNavigate
 
@@ -7,8 +8,8 @@ function Card({ id, name, description, price, imageUrl }) {
     const navigate = useNavigate(); // Hook para navegação
 
     const handleAddToCart = () => {
-        // Redirecionar para a página 404 quando o botão "Adicionar ao Carrinho" for clicado
-        navigate('/Page404');
+        // Redirecionar para a página 404 quando o botão "Adicionar ao Carrinho" for clicado '/Page404'
+        navigate(`/produto/${id}`);
     };
 
     return (
@@ -23,7 +24,7 @@ function Card({ id, name, description, price, imageUrl }) {
             </Link>
             <div className={styles.card_footer}>
                 <button className={styles.botao} onClick={handleAddToCart}>
-                    <BsCartPlus /> Adicionar ao Carrinho
+                    {/*<BsCartPlus /> Retire o comentário para visualizar o icone do carrinho no botão */} Ver detalhes
                 </button>
             </div>
         </div>

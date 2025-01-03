@@ -1,6 +1,5 @@
 .productDetails {
     padding: 20px;
-    text-align: center;
 }
 
 .productDetails h2 {
@@ -16,10 +15,11 @@
 
 .productInfo {
     margin-top: 1.5rem;
+    font-size: 1.75rem;
 }
 
 .productInfo h3 {
-    font-size: 1.75rem;
+   
     margin-bottom: 1rem;
 }
 

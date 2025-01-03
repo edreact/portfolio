@@ -8,7 +8,7 @@ function ProductDetails() {
 
     useEffect(() => {
         const fetchProduct = async () => {
-            const response = await fetch('https://script.google.com/macros/s/AKfycbz3dPYXXfTqou_D_yv_XdmAm5FVPkKJ8NehotNPtf8ELTVJJ-QpXBT3k1D-kF3VG6W7/exec');
+            const response = await fetch('https://script.google.com/macros/s/AKfycbxQNS7qveTq3daVm9vcpohPOAWs6s5PeOCZ7MNyTrfcL8piABpqCq1aoS5R84xU593m2A/exec');
             const data = await response.json();
             const foundProduct = data.saida.find((item) => item.id === parseInt(id));
             setProduct(foundProduct);
@@ -25,21 +25,19 @@ function ProductDetails() {
             {/* Breadcrumb - caminho de navegação */}
             <div className={styles.breadcrumb}>
                 {/* Ajuste para a rota correta de projetos */}
-                <Link to="/projetos">Projetos</Link> <span>Detalhes</span>
+                <Link to="/projetos">Projetos</Link> <span> &gt; Detalhes</span>
             </div>
 
             <h2>{product.name}</h2>
             <img src={product.imageUrl} alt={product.name} className={styles.mainImage} />
 
             <div className={styles.productInfo}>
-                <h3>Detalhes do Produto</h3>
-                <p><strong>Preço:</strong> R$ {product.price}</p>
-                <p><strong>Descrição:</strong> {product.description}</p>
-                
-                <div className={styles.extraImages}>
-                    <h3>Mais Imagens</h3>
-                    <img src={product.imageUrl} alt="Extra 1" />
-                </div>
+                <p><strong>Valor:</strong> R$ {product.price}</p>
+                <p><strong>Categoria:</strong> {product.description}</p>
+
+                <p><strong>Detalhes:</strong> {product.ProductDetails}</p>
+
+                <p><strong>Descrição:</strong> {product.ProductDescription}</p>
             </div>
         </div>
     );

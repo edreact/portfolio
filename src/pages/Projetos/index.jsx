@@ -10,7 +10,7 @@ function Projetos() {
     useEffect(() => {
         const fetchData = async () => {
             // Faz a requisição para a API
-            const response = await fetch('https://script.google.com/macros/s/AKfycbz3dPYXXfTqou_D_yv_XdmAm5FVPkKJ8NehotNPtf8ELTVJJ-QpXBT3k1D-kF3VG6W7/exec');
+            const response = await fetch('https://script.google.com/macros/s/AKfycbxQNS7qveTq3daVm9vcpohPOAWs6s5PeOCZ7MNyTrfcL8piABpqCq1aoS5R84xU593m2A/exec');
             const data = await response.json();
             setRepositories(data.saida); // Armazena todos os produtos
             setLastProducts(data.saida.slice(-4)); // Armazena os últimos 4 produtos
@@ -25,7 +25,7 @@ function Projetos() {
 
     return (
         <section className={styles.projetos}>
-            <h2>Minha Loja Virtual</h2>
+            <h2>Manutenção residencial</h2>
 
             {/* Campo de pesquisa sempre visível no topo */}
             <div className={styles.searchContainer}>

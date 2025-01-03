@@ -1,4 +1,5 @@
 /* Estilo dos Cards */
+
 .card {
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -25,7 +26,7 @@
 }
 
 .card h3 {
-    font-size: 1rem; /* Tamanho de fonte adequado para telas grandes */
+    font-size: 1.5rem; /* Tamanho de fonte adequado para telas grandes */
     margin: 0.5rem 0; /* Margem padrão */
     white-space: nowrap; /* Não quebrar a linha */
     overflow: hidden;
@@ -33,7 +34,7 @@
 }
 
 .card p {
-    font-size: 0.85rem; /* Tamanho de fonte para descrição */
+    font-size: 1.75rem; /* Tamanho de fonte para descrição */
     margin: 0.5rem 0; /* Margem padrão */
     color: #555;
     white-space: nowrap;
@@ -59,7 +60,7 @@
     padding: 8px 12px; /* Padding padrão para o botão */
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.85rem; /* Tamanho de fonte padrão para o botão */
+    font-size: 1.5rem; /* Tamanho de fonte padrão para o botão */
 }
 
 .botao:hover {
